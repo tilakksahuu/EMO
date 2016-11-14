@@ -10,12 +10,16 @@ FROM
     WHERE PRICE_PLAN     = CM.T_PRICE_PLAN
     AND EXPIRATION_DATE IS NULL
     )) AS EFFECTIVE_DATE,
-    TO_DATE ('&STT', 'mm/dd/yyyy hh:mi:ss PM'),
+    TO_DATE ('  
+&STT', 'mm/dd/yyyy hh:mi:ss PM'),
     NULL,
-    '&OperatorID'             AS OPERATOR_ID,
-    '&TRNum'                  AS APPLICATION_ID,
-    'TR'                      AS DL_SERVICE_CODE,
-    TO_CHAR (SYSDATE, 'MMDD') AS DL_UPDATE_STAMP,
+    '  
+&OperatorID'             AS OPERATOR_ID,
+    '  
+&TRNum'                  AS APPLICATION_ID,
+    'TR'                         AS DL_SERVICE_CODE,
+    TO_CHAR (SYSDATE, 'MMDD  
+') AS DL_UPDATE_STAMP,
     A.OC_INFO_IND,
     A.UC_INFO_IND,
     A.RC_INFO_IND,
@@ -33,7 +37,7 @@ FROM
     A.AUTO_SALE_RANK
   FROM
     &Schema.RATED_FEATURE A,
-    TBLOPER.WHOLESALE_CLONE_SC1 CM
+    TBLOPER.WHOLESALE_CLONE_SC2 CM
   WHERE A.PRICE_PLAN    = CM.S_PRICE_PLAN
   AND A.SUB_MARKET_CODE = CM.S_SUB_MARKET_CODE
   AND A.FEATURE_CODE    = CM.S_FEATURE_CODE
